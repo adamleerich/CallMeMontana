@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Author: Adam L. Rich\n# Date:   July 3, 2016\n# Description:\n#\n#   Analyze text file from Project Gutenberg \n#   to see how many words, letters, etc. there are\n#\n\n\n# Setup\nlibrary(magrittr)\n\n\n\n# Get text\n# txt <- readLines('http://self.gutenberg.org/eBooks/WPLBN0001235250-Call-Me-Montana-by-John-Richman.txt')\ntxt <- readLines('http://www.gutenberg.org/cache/epub/1400/pg1400.txt')\nlength(txt)\ntxt[1000:1020]\n\n\n\n# Get words\n# TODO Remove blanks\nwords_all <- strsplit(txt, ' ') %>% unlist %>% tolower %>% sort\nwords_all <- words_all[words_all != '']\nwords_all <- words_all[words_all != '--']\nlength(words_all)\nhead(words_all)\n\n\nwords_1 <- words_all %>% unique\nlength(words_1)\nhead(words_1)\n\n\n\n# Split into characters\nchars_all <- strsplit(words_all, '') %>% unlist\nchars_1 <- strsplit(words_1, '') %>% unlist\ntable(chars_all)\n\n\n# Restrict to letters\nletters_all <- chars_all[chars_all %in% letters]\ntable(letters_all)\nletters_1 <- chars_1[chars_1 %in% letters]\n\n\n\n# Quick plot\nletters_all %>% table %>% plot\nletters_1 %>% table %>% plot\n\n\n\n# Restrict to rare letters\nrare <- c('j', 'q', 'x', 'z')\nrare_all <- chars_all[chars_all %in% rare]\nrare_1 <- chars_1[chars_1 %in% rare]\n\n\n\n# Show tabulated results\nrare_all %>% table %>% plot\nrare_1 %>% table %>% plot\n\nrare_all %>% table\nrare_1 %>% table\n\n\n\n\n\n\n\n# Look at just Js\nmontana <- readLines('http://self.gutenberg.org/eBooks/WPLBN0001235250-Call-Me-Montana-by-John-Richman.txt')\ndickens <- readLines('http://www.gutenberg.org/cache/epub/1400/pg1400.txt')\n\n\n\n\n\n",
+    "created" : 1467584667881.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1962669284",
+    "id" : "4E23CEA",
+    "lastKnownWriteTime" : 1467662765,
+    "last_content_update" : 1467662765246,
+    "path" : "C:/home/git/CallMeMontana/CallMeMontana.R",
+    "project_path" : "CallMeMontana.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

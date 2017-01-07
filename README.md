@@ -1,0 +1,2 @@
+# CallMeMontana
+Abby wanted to know which letters were the most used in English, so I showed her how to use R to pull books from Project Gutenberg and then use them to count letters and make histograms.  Call Me Montana was the first book we looked at.
